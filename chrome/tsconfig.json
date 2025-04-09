@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // Absolute import paths
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    }
+  },
+  "extends": "../tsconfig.json",
+  "include": [
+    "src",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

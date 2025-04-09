@@ -1,0 +1,115 @@
+// Copyright © 2025 Jalapeno Labs
+
+@import '@/sass/theme.sass'
+
+// TODO: Having some compatibility issues with Bulma v1, need to fix...
+
+// New elements
+// @import '@navarrotech/bulma/src/NavarroTech/Elements/_all.sass'
+
+// New components
+// @import '@navarrotech/bulma/src/NavarroTech/Components/_all.sass'
+// @import '@navarrotech/bulma/src/NavarroTech/Components/subcontainer.sass'
+// Temporary fix:
+@import './navarrotech/subcontainer.sass'
+@import './navarrotech/toggleswitch.scss'
+@import './navarrotech/toasts.sass'
+
+// New Addons
+// @import '@navarrotech/bulma/src/NavarroTech/Addons/_all.sass'
+@import '@navarrotech/bulma/src/NavarroTech/Addons/container.sass'
+@import '@navarrotech/bulma/src/NavarroTech/Addons/image.sass'
+
+// ////////////////// //
+//    Bulma Custom    //
+// ////////////////// //
+
+.field.floating-label
+  > .control
+    &.placeholder-label
+      content: attr(placeholder)
+      position: absolute
+      top: 0
+      left: 0
+      padding: 0 0.5rem
+      // color: rgba(0,0,0,0.3)
+      color: white
+      pointer-events: none
+      font-size: 1.5rem
+      transition: all 100ms ease-out
+  input::placeholder,
+  textarea::placeholder
+    color: transparent
+  &.has-value
+    > .control
+      &.placeholder-label
+        top: -2rem
+        left: -0.5rem
+        font-size: 1rem
+        font-weight: bold
+
+// // 1. Variables for Customization
+// $transition-duration: 0.3s
+// $label-color: #aaa
+// $label-active-color: #3273dc // Bulma's primary color
+// $input-border-color: #dbdbdb // Bulma's input border color
+// $input-focus-border-color: #3273dc // Bulma's primary color
+// $background-color: black
+
+// // 2. Mixin for Transition
+// @mixin transition($properties...)
+//   transition: $properties $transition-duration ease-out
+
+// // 3. Floating Label Styles
+// .field
+//   position: relative
+//   margin-bottom: 1.5rem
+
+//   .control
+//     position: relative
+
+//     input.input,
+//     textarea.textarea
+//       width: 100%
+//       padding: 1rem 0.5rem
+//       border: 1px solid $input-border-color
+//       border-radius: 4px
+//       background-color: $background-color
+//       font-size: 1rem
+//       outline: none
+
+//       // Remove default placeholder visibility
+//       &::placeholder
+//         color: transparent
+
+//       &:focus
+//         border-color: $input-focus-border-color
+
+//       // When input is not empty or focused, move the label
+//       &:not(:placeholder-shown) + .floating-label,
+//       &:focus + .floating-label
+//         top: -0.6rem
+//         left: 0.5rem
+//         font-size: 0.75rem
+//         color: $label-active-color
+
+//     .floating-label
+//       position: absolute
+//       left: 0.5rem
+//       top: 1rem
+//       background-color: $background-color
+//       padding: 0 0.25rem
+//       color: $label-color
+//       pointer-events: none
+//       font-size: 1rem
+//       @include transition(all)
+
+//       // Optional: Change color on focus
+//       .control input:focus + &,
+//       .control textarea:focus + &
+//         color: $label-active-color
+
+//     // If using icons, ensure the label is positioned correctly
+//     &.has-icons-left
+//       .floating-label
+//         left: 2rem // Adjust based on icon size

@@ -1,0 +1,134 @@
+// Copyright © 2024 Elysia
+
+// If the user prefers dark mode, apply the dark color scheme
+@media (prefers-color-scheme: dark)
+  *
+    color-scheme: dark
+
+// If the user prefers dark mode, apply the dark color scheme
+@media (prefers-color-scheme: light)
+  .button.is-primary
+    color: white
+  
+.has-background
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+
+// Remove the default calendar icon from date inputs
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator
+    display: none
+    -webkit-appearance: none
+
+.is-fullwidth
+  width: 100%
+
+.nowrap
+  white-space: nowrap
+
+.icon-text
+  flex-wrap: nowrap !important
+
+.description
+  line-height: 2 !important
+
+.opacity-50
+  opacity: 0.5
+
+.input-overlay-action
+  position: absolute
+  right: 1em
+  top: 2.95em
+  font-size: 0.9rem
+  cursor: pointer
+
+  &:hover
+    text-decoration: underline
+
+.box
+  &.is-primary
+    background-color: $primary
+
+    .title,
+    .subtitle,
+    p:not(.ignore-box-colors)
+      color: white !important
+
+  &.is-max-height-medium
+    max-height: 10em
+    overflow-x: hidden
+    overflow-y: auto
+
+.field
+  position: relative
+
+.icon-text
+  align-items: center !important
+
+// .navbar
+//   $hamburger-width: 70vw
+//   &::before
+//     content: ' '
+//     position: fixed
+//     top: $navbar-height
+//     z-index: 99
+//     right: 0
+//     left: 0
+//     bottom: 0
+//     width: 100vw
+//     height: 100vh
+//     backdrop-filter: blur(3px)
+//     transition: opacity 250ms ease
+//     pointer-events: none
+//     opacity: 0
+
+//   &.is-active::before
+//     pointer-events: auto
+//     opacity: 1
+
+//   .navbar-menu
+//     position: fixed
+//     transition: left 300ms ease
+//     width: $hamburger-width
+//     height: calc(100vh - $navbar-height)
+//     top: $navbar-height
+//     bottom: 0
+
+//     display: flex !important
+//     justify-content: space-between
+//     flex-direction: column
+
+//     z-index: 100
+
+//     > div
+//       width: 100%
+
+//     &:not(.is-active)
+//       left: -100vw
+
+//     &.is-active
+//       left: 0
+
+.navbar-item
+  &.is-active
+    color: white !important
+
+.flex-center
+  display: flex !important
+  align-items: center !important
+  justify-content: center !important
+
+.icon
+  &.is-huge
+    font-size: 4rem
+    width: 4rem
+    height: 4rem
+  &.is-massive
+    font-size: 5rem
+    width: 5rem
+    height: 5rem
+
+.box.is-bordered
+  border: 1.5px solid color.scale($base, $lightness: 85%)
+  box-shadow: none

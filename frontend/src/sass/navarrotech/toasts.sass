@@ -1,0 +1,49 @@
+// Copyright © 2025 Jalapeno Labs
+
+.toasts
+  position: fixed
+  z-index: 1000
+  bottom: 2em
+  right: 2em
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  justify-content: flex-end
+  gap: 1em
+
+.toast
+  min-width: 20em
+  max-width: 20em
+  opacity: 1
+  transition: transform 300ms ease, opacity 300ms ease
+
+  p
+    // This is regardless of the theme
+    color: white !important
+
+  &:global(.notification) :global(.progress-item),
+  &:global(.button)
+    &:global(.is-primary)
+      background: color.scale($primary, $lightness: -30%) !important
+    &:global(.is-link)
+      background: color.scale($link, $lightness: -30%) !important
+    &:global(.is-info)
+      background: color.scale($info, $lightness: -30%) !important
+    &:global(.is-success)
+      background: color.scale($success, $lightness: -30%) !important
+    &:global(.is-warning)
+      background: color.scale($warning, $lightness: -30%) !important
+    &:global(.is-danger)
+      background: color.scale($danger, $lightness: -30%) !important
+    &:global(.is-dark)
+      background: $base
+    &:global(.is-light)
+      background: $light !important
+    &:global(.is-white)
+      background: white !important
+    &:global(.is-black)
+      background: black !important
+
+  &.is-expiring
+    opacity: 0
+    transform: translateY(-100%)

@@ -1,0 +1,18 @@
+{
+  "name": "elysia-extension",
+  "version": "1.0.0",
+  "description": "Elysia helper sidebar integration into Chrome",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "vite": "^4.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
+}

@@ -1,27 +1,45 @@
-services:
+# Copyright © 2025 Jalapeno Labs
 
-  voice:
+services:
+  langgraph:
     build:
-      context: .
-      dockerfile: voice/Dockerfile
-    container_name: elysia-voice
+      context: langgraph
+    container_name: elysia-langgraph
     restart: unless-stopped
-    command: yarn tsx watch voice/src/index.ts
+    command: tail -f /dev/null
     volumes:
-      - ./voice/src:/app/voice/src
-      - ./voice/tsconfig.json:/app/voice/tsconfig.json
-      - ./voice/package.json:/app/voice/package.json
-      - ./voice/yarn.lock:/app/voice/yarn.lock
-      - ./library:/app/library
-      - ./global.d.ts:/app/global.d.ts
-      - ./tsconfig.json:/app/tsconfig.json
-      - ./package.json:/app/package.json
-      - ./yarn.lock:/app/yarn.lock
-    devices:
-      - "/dev/snd:/dev/snd"
+      - ./langgraph/src:/app/src
+      - ./langgraph/pyproject.toml:/app/pyproject.toml
     environment:
-      WHISPER_HOST: elysia-whisperlive
-      WHISPER_PORT: 9090
+      PYTHONUNBUFFERED: "1"
+      OPENAI_API_TOKEN: ${OPENAI_API_TOKEN}
+    networks:
+      - main
+      - database
+
+
+  # voice:
+  #   build:
+  #     context: .
+  #     dockerfile: voice/Dockerfile
+  #   container_name: elysia-voice
+  #   restart: unless-stopped
+  #   command: yarn tsx watch voice/src/index.ts
+  #   volumes:
+  #     - ./voice/src:/app/voice/src
+  #     - ./voice/tsconfig.json:/app/voice/tsconfig.json
+  #     - ./voice/package.json:/app/voice/package.json
+  #     - ./voice/yarn.lock:/app/voice/yarn.lock
+  #     - ./library:/app/library
+  #     - ./global.d.ts:/app/global.d.ts
+  #     - ./tsconfig.json:/app/tsconfig.json
+  #     - ./package.json:/app/package.json
+  #     - ./yarn.lock:/app/yarn.lock
+  #   devices:
+  #     - "/dev/snd:/dev/snd"
+  #   environment:
+  #     WHISPER_HOST: elysia-whisperlive
+  #     WHISPER_PORT: 9090
     # environment:
     #   DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/elysia
     #   DB_USER: ${POSTGRES_USER}
@@ -30,20 +48,20 @@ services:
     #   DB_PORT: 5432
     #   MODE: development
 
-  transcription:
-    build:
-      context: transcription
-    container_name: elysia-transcription
-    restart: unless-stopped
-    environment:
-      PULSE_SERVER: host.docker.internal
+  # transcription:
+  #   build:
+  #     context: transcription
+  #   container_name: elysia-transcription
+  #   restart: unless-stopped
+  #   environment:
+  #     PULSE_SERVER: host.docker.internal
 
-  whisperlive:
-    image: ghcr.io/collabora/whisperlive-cpu:latest
-    container_name: elysia-whisperlive
-    restart: unless-stopped
-    ports:
-      - "9090:9090"
+  # whisperlive:
+  #   image: ghcr.io/collabora/whisperlive-cpu:latest
+  #   container_name: elysia-whisperlive
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9090:9090"
 
   # nginx:
   #   image: nginx:1.27.3
@@ -84,6 +102,8 @@ services:
       timeout: 4s
       retries: 5
       start_period: 1s
+    networks:
+      - database
 
   # This should only be used in dev!
   # In prod, Nginx should serve the statically generated files.
@@ -100,18 +120,18 @@ services:
   #     - ./frontend/src/:/app/src/
   #     - ./frontend/public/:/app/public/
 
-  whisper:
-    image: onerahmet/openai-whisper-asr-webservice:latest
-    container_name: elysia-whisper
-    restart: unless-stopped
-    # gpus: all
-    environment:
-      ASR_MODEL: base
-      ASR_ENGINE: openai_whisper
-    ports:
-      - 9000:9000
-    volumes:
-      - whisper_cache:/root/.cache/
+  # whisper:
+  #   image: onerahmet/openai-whisper-asr-webservice:latest
+  #   container_name: elysia-whisper
+  #   restart: unless-stopped
+  #   # gpus: all
+  #   environment:
+  #     ASR_MODEL: base
+  #     ASR_ENGINE: openai_whisper
+  #   ports:
+  #     - 9000:9000
+  #   volumes:
+  #     - whisper_cache:/root/.cache/
 
   # pgadmin:
   #   image: dpage/pgadmin4:latest
@@ -178,3 +198,7 @@ volumes:
     name: elysia_pgadmin_data
   whisper_cache:
     name: elysia_whisper_cache
+
+networks:
+  main:
+  database:

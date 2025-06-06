@@ -1,29 +1,39 @@
 {
-    // ESLint formatting on save settings:
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "always"
+    // //////////////////////// //
+    //         ALL FILES        //
+    // //////////////////////// //
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        120
+    ],
+    "files.exclude": {
+        "**/poetry.lock": true,
+        "**/yarn.lock": true,
     },
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    // //////////////////////// //
+    //          PYTHON          //
+    // //////////////////////// //
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingTypeStubs": "error"
+    },
+    // //////////////////////// //
+    //        TYPESCRIPT        //
+    // //////////////////////// //
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "always"
+        },
+    },
     "eslint.format.enable": true,
     "eslint.validate": [
-        "javascript",
-        "javascriptreact",
         "typescript",
         "typescriptreact",
         "react"
-    ],
-    "[typescript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    // i18next settings for showing the translation on hover:
-    "reacti18nextTranslationOnHover.defaultLocale": "en-US",
-    "reacti18nextTranslationOnHover.translationFoldersPaths": [
-        "public/locales"
-    ],
-    // Max length ruler:
-    "editor.rulers": [
-        100,
-        120
-    ],
-    "i18next.i18nPaths": "e:/Projects/JalapenoLabs/Elysia/frontend/public/locales",
+    ]
 }

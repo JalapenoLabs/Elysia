@@ -1,0 +1,6 @@
+name: elysia
+channels:
+  - defaults
+dependencies:
+  - python=3.12.0
+  - poetry

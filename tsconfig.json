@@ -1,36 +1,42 @@
 {
   "compilerOptions": {
-    // Cache
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    // Target
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "ESNext",
+    "module": "ESNext",
     "useDefineForClassFields": true,
     "lib": [
-      "ESNext",
-      "DOM",
-      "DOM.Iterable"
+      "ESNext"
     ],
-    // Type handling
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "strictNullChecks": false, // Allow null & undefined to be interchangable
-    "strict": true, // Enable all strict type checking options
-    // Resolving
-    "moduleResolution": "bundler",
+    "composite": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "strict": true,
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    // Output
     "noEmit": true,
-    // Linting
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      // This enables us to write `import { Foo } from "@library/globals"`
+      "@library/*": [
+        "library/*"
+      ]
+    }
   },
+  "include": [
+    "library/**/*",
+    "global.d.ts"
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/dist"
   ]
 }

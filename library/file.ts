@@ -1,4 +1,4 @@
-// Copyright © 2025 Navarrotech
+// Copyright © 2025 Jalapeno Labs
 
 export function forEachFileInDirectory(
   dirPath: string,

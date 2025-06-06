@@ -1,4 +1,4 @@
-// Copyright © 2025 Navarrotech
+// Copyright © 2025 Jalapeno Labs
 
 import * as fsModule from 'fs'
 import * as pathModule from 'path'

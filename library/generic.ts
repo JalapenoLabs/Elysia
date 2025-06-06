@@ -1,4 +1,4 @@
-// Copyright © 2025 Navarrotech
+// Copyright © 2025 Jalapeno Labs
 
 export const reservedKeywords = [
   // Keyword, ECMA-262 3rd: 7.5.2

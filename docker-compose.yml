@@ -1,22 +1,27 @@
 services:
 
-  langgraph:
+  voice:
     build:
       context: .
-      dockerfile: elysia/Dockerfile
-    container_name: elysia-langgraph
+      dockerfile: voice/Dockerfile
+    container_name: elysia-voice
     restart: unless-stopped
-    command: yarn tsx watch elysia/src/index.ts
+    command: yarn tsx watch voice/src/index.ts
     volumes:
-      - ./elysia/src:/app/elysia/src
-      - ./elysia/tsconfig.json:/app/elysia/tsconfig.json
-      - ./elysia/package.json:/app/elysia/package.json
-      - ./elysia/yarn.lock:/app/elysia/yarn.lock
+      - ./voice/src:/app/voice/src
+      - ./voice/tsconfig.json:/app/voice/tsconfig.json
+      - ./voice/package.json:/app/voice/package.json
+      - ./voice/yarn.lock:/app/voice/yarn.lock
       - ./library:/app/library
       - ./global.d.ts:/app/global.d.ts
       - ./tsconfig.json:/app/tsconfig.json
       - ./package.json:/app/package.json
       - ./yarn.lock:/app/yarn.lock
+    devices:
+      - "/dev/snd:/dev/snd"
+    environment:
+      WHISPER_HOST: elysia-whisperlive
+      WHISPER_PORT: 9090
     # environment:
     #   DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/elysia
     #   DB_USER: ${POSTGRES_USER}
@@ -24,6 +29,21 @@ services:
     #   DB_DEFAULT: elysia
     #   DB_PORT: 5432
     #   MODE: development
+
+  transcription:
+    build:
+      context: transcription
+    container_name: elysia-transcription
+    restart: unless-stopped
+    environment:
+      PULSE_SERVER: host.docker.internal
+
+  whisperlive:
+    image: ghcr.io/collabora/whisperlive-cpu:latest
+    container_name: elysia-whisperlive
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
 
   # nginx:
   #   image: nginx:1.27.3

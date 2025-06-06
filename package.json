@@ -8,9 +8,11 @@
   },
   "private": true,
   "license": "MIT",
-  "workspaces": [
-    "elysia/"
-  ],
+  "workspaces": {
+    "packages": [
+      "voice/"
+    ]
+  },
   "dependencies": {},
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^3.1.0",

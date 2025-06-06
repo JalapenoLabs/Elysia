@@ -1,4 +1,4 @@
-// Copyright © 2024 Navarrotech
+// Copyright © 2024 Jalapeno Labs
 
 // This is the recommende ESLint configuration
 // Based on rules and experience from the Google typescript style guide
@@ -198,8 +198,8 @@ module.exports = {
     // We should be enforcing a copyright header on all files
     'header/header': ['error', 'line', [
       {
-        pattern: 'Copyright © \\d{4} Navarrotech',
-        template: `Copyright © ${new Date().getFullYear()} Navarrotech`,
+        pattern: 'Copyright © \\d{4} Jalapeno Labs',
+        template: `Copyright © ${new Date().getFullYear()} Jalapeno Labs`,
       }
     ]],
   },

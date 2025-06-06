@@ -30,23 +30,19 @@ jobs:
 
       - name: Run tests
         working-directory: langgraph
-        run: |
-          # Run tests with coverage
-          poetry run pytest --cov-report=xml
+        run: poetry run pytest
 
       - name: Check types
         working-directory: langgraph
-        run: |
-          # Run type checking
-          poetry run mypy --strict src
+        run: poetry run mypy --strict src
 
       - name: Setup Docker
         uses: docker/setup-buildx-action@v3
 
       - name: Install Docker Compose plugin
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose-plugin
+          sudo apt update
+          sudo apt install -y docker-compose-plugin
 
       - name: Build Docker image
         run: docker compose build langgraph

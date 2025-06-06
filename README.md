@@ -35,22 +35,26 @@ This was written and developed in a Windows 11 environment with an AMD CPU and A
 However, it was designed to be flexible enough to run on any platform, including Linux and MacOS.
 It uses Docker to containerize the application, making it easy to deploy and run on any system that supports Docker.
 
-# Requirements
-You will need to have the following installed:
-- Docker
-- Docker Compose
-- Node.js (optional, it's useful for your IDE)
-  - We use yarn as the package manager, not npm or pnpm
-- Conda or Miniconda (optional, it's useful for your IDE)
-  - Python 3.12+ (optional, it's useful for your IDE)
+# Running requirements
 
-# Installation & running
-Clone the project and simply use docker compose:
+You will need to have the following installed:
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+Simply clone this git project and simply use docker compose:
 ```
 docker compose up
 ```
 
 # Development
+
+In order to develop this project, you will need to have the following installed:
+- [Magefile](https://magefile.org/) 
+- [Node.js](https://nodejs.org/en/download/) (v20+)
+  - We use [yarn](https://yarnpkg.com/) as the package manager, not npm or pnpm
+- [Conda or Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main)
+  - Python 3.12+
+- [Poetry](https://python-poetry.org/)
 
 Setup a conda environment with Python 3.12+:
 ```bash

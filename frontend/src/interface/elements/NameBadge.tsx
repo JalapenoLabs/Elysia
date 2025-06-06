@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 // Typescript
 import type { BaseUser } from '@/types'

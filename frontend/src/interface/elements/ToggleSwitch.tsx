@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 // Core
 import { useTranslation } from 'react-i18next'

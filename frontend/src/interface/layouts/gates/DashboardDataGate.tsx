@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 // Core
 import { Navigate, Outlet } from 'react-router'
@@ -13,7 +13,7 @@ import { Loader } from '@/interface/widget/Loader'
 // API
 import { usePullBackendData } from '@/api/apiHooks'
 import { getInstitution } from '@/api/routes/institutions/get'
-import { getInstruments } from '@/api/routes/getInstruments'
+import { getInstruments } from '@/api/routes/example'
 
 // Misc
 import { UNAUTHORIZED_REDIRECT_TO } from '@/constants'

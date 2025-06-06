@@ -1,4 +1,4 @@
-// Copyright © 2024 Algorivm
+// Copyright © 2024 Elysia
 
 // Core
 import { createSlice } from '@reduxjs/toolkit'

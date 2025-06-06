@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 export function Contact() {
   return <div className=''>

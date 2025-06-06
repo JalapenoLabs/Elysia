@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 /* eslint-disable import/no-extraneous-dependencies, @typescript-eslint/no-unused-vars */
 
@@ -23,7 +23,7 @@ type ErrorCodesOutput = Record<string, string>
 // ///////////////////////// //
 
 const DEBUG: boolean = !!process.env.DEBUG
-const SUBMODULE_COMMON_FOLDER_NAME = 'algorivm_common' as const
+const SUBMODULE_COMMON_FOLDER_NAME = 'elysia_common' as const
 const ERROR_CODES_FILENAME = 'errorCodes.json' as const
 const OUTPUT_I18N_KEY_PATH = 'errors.backend' as const
 const OUTPUT_WHITELIST_LANGUAGES: string[] = [ 'en-GB', 'en-US' ] as const

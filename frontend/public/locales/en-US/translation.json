@@ -1,8 +1,8 @@
 {
   "brand": {
-    "short-name": "Algorivm",
-    "full-name": "Algorivm",
-    "powered-by": "Powered by Algorivm",
+    "short-name": "Elysia",
+    "full-name": "Elysia",
+    "powered-by": "Powered by Elysia",
     "slogan": "Brilliant outcomes through technology enabled learning."
   },
   "common": {
@@ -33,7 +33,7 @@
     "complete": "Complete"
   },
   "auth": {
-    "title": "Welcome to Algorivm",
+    "title": "Welcome to Elysia",
     "login-subtitle": "Login to your account",
     "signup-subtitle": "Create an account",
     "create-password": "Create Password",
@@ -47,7 +47,7 @@
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
     "continue": "Continue",
-    "new-account": "New to Algorivm?",
+    "new-account": "New to Elysia?",
     "already-account": "Already have an account?",
     "join-now": "Join now",
     "forgot-password": {

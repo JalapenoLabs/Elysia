@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 /* eslint-disable import/no-extraneous-dependencies, @typescript-eslint/no-unused-vars */
 

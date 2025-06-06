@@ -1,4 +1,4 @@
-// Copyright © 2025 Algorivm
+// Copyright © 2025 Elysia
 
 // Core
 import { ThemedImage } from './ThemedImage'
@@ -33,7 +33,7 @@ export function Logo({ unClickable, ...props }: LogoProps) {
     }}
   >
     <ThemedImage
-      src={(theme) => `/images/${theme}/Algorivm.png`}
+      src={(theme) => `/images/${theme}/Elysia.png`}
       alt={t('brand.full-name')}
       title='brand.slogan'
       { ...props }

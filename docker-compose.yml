@@ -9,7 +9,9 @@ services:
     command: tail -f /dev/null
     volumes:
       - ./langgraph/src:/app/src
+      - ./langgraph/templates:/app/templates
       - ./langgraph/pyproject.toml:/app/pyproject.toml
+      - ./langgraph/poetry.lock:/app/poetry.lock
     environment:
       PYTHONUNBUFFERED: "1"
       OPENAI_API_TOKEN: ${OPENAI_API_TOKEN}

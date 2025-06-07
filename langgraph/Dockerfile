@@ -12,5 +12,6 @@ RUN poetry install --no-root --no-interaction --no-ansi
 
 # Source code
 COPY src/ src/
+COPY templates/ templates/
 
 CMD ["python", "src/app.py"]

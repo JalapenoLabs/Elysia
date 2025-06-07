@@ -10,7 +10,7 @@ def main() -> int:
         print(templates.get_template("welcome").format(url=SERVER_URL))
 
         import uvicorn
-        from langgraph.src.server.starlette import app
+        from server import app
 
         uvicorn.run(
             app,

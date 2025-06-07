@@ -6,11 +6,11 @@ from starlette.responses import JSONResponse, Response
 from starlette.routing import BaseRoute, Route
 
 
-async def ok(request: Request):
+async def ok(request: Request) -> JSONResponse:
     return JSONResponse({"ok": True})
 
 
-async def ping(request: Request):
+async def ping(request: Request) -> Response:
     return Response("pong")
 
 
